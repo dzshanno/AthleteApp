@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from athlete.models import athlete
+
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the athlete index.")
+    num_athletes = 2
+    context = {'num_athletes':num_athletes,}
+    
+    return render(request, 'index.html',context = context)
