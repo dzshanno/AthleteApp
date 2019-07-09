@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Athletes</h1>
+  <p>List of all athletes</em>!</p>
+  <h2>Dynamic content</h2>
+  <p>The app has the following record counts:</p>
+  <ul>
+    <li><strong>Athletes:</strong> {{ num_books }}</li>
+    <li><strong>Teams:</strong> {{ num_instances }}</li>
+    <li><strong>coaches:</strong> {{ num_instances_available }}</li>
+    <li><strong>fixtures:</strong> {{ num_authors }}</li>
+  </ul>
+{% endblock %}

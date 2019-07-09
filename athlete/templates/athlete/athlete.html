@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{%for stuff in athlete_data %}
+  <h1>Athlete Details</h1>
+  {{ stuff.email }}
+  {{ stuff.AthleteName }}
+  {{ stuff.DoB }}
+  </ul>
+  {% endfor %}  
+{% endblock %}
