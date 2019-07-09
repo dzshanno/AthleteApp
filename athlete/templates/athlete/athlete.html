@@ -1,11 +1,32 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-{%for stuff in athlete_data %}
+  {%for specificathlete in athlete_data %}
   <h1>Athlete Details</h1>
-  {{ stuff.email }}
-  {{ stuff.AthleteName }}
-  {{ stuff.DoB }}
+  <ul>
+  {{ specificathlete.email }}
+  {{ specificathlete.AthleteName }}
+  {{ specificathlete.DoB }}
   </ul>
+        <ul>
+        {{ average_data  }}
+
+        {% for detail in specificathlete.assessment_set.all %}
+            <li>Detail {{ detail.AssessmentDate }}</li>
+            <li>Height Jump {{ detail.HeightJump }} cm</li>
+            <li>Broad Jump {{ detail.BroadJump }} cm</li>
+            <li>Grip Stregth {{ detail.GripStrength }} kg</li>
+            <li>16m Sprint {{ detail.Sprint }} secs</li>
+            <li>Agility Box {{ detail.AgilityBox }} secs</li>
+            <li>5 From 5 {{ detail.FiveFromFiveTime }} secs</li>
+            <li>for {{ detail.FiveFromFiveBalls }} balls</li>
+            <li>Hit Speed {{ detail.HitSpeed }} m/s</li>
+            <li>Push Speed {{ detail.PushSpeed }} m/s</li>
+            <li>Yo Yo test {{ detail.IRYY1 }} </li>
+            <li> Comments {{ detail.comments }} </li>
+
+            <li> Assessment location {{ detail.AssessmentEvent_set.Location }}</li>
+        {% endfor %}
+        </ul>
   {% endfor %}  
 {% endblock %}

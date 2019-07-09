@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib import admin
 
-from .models import athlete,assessment
+from .models import athlete,assessment,AssessmentEvent
 
 
 
@@ -15,5 +15,9 @@ class athleteAdmin(admin.ModelAdmin):
 class assessmentAdmin(admin.ModelAdmin):
     pass
 
+class AssessmentEventAdmin(admin.ModelAdmin):
+    pass
+    
 admin.site.register(athlete, athleteAdmin)
 admin.site.register(assessment, assessmentAdmin)
+admin.site.register(AssessmentEvent, AssessmentEventAdmin)

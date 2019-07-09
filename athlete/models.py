@@ -12,21 +12,42 @@ class athlete(models.Model):
     def __str__(self):
         return self.AthleteName
 
-
-class assessment(models.Model):
+class AssessmentEvent(models.Model):
     AssessmentDate = models.DateField(default = date.today)
-    HeightJump = models.FloatField()
-    BroadJump = models.FloatField()
-    GripStrength = models.FloatField()
-    Sprint = models.FloatField()
-    AgilityBox = models.FloatField()
-    FiveFromFiveTime = models.FloatField()
-    FiveFromFiveBalls = models.FloatField()
-    HitSpeed = models.FloatField()
-    PushSpeed = models.FloatField()
-    IYRR1 = models.FloatField()
-    Comments = models.TextField()
-    Athlete = models.ForeignKey(athlete, on_delete=models.CASCADE)
+    Location = models.TextField(default = 'Hithercroft')
+    AvHeightJump = models.FloatField(default = 0)
+    AvBroadJump = models.FloatField(default = 0)
+    AvGripStrength = models.FloatField(default = 0)
+    AvSprint = models.FloatField(default = 0)
+    AvAgilityBox = models.FloatField(default = 0)
+    AvFiveFromFiveTime = models.FloatField(default = 0)
+    AvFiveFromFiveBalls = models.FloatField(default = 0)
+    AvHitSpeed = models.FloatField(default = 0)
+    AvPushSpeed = models.FloatField(default = 0)
+    AvIRYY1 = models.FloatField(default = 0)
+    Comments = models.TextField(default = 'None')
 
     def __str__(self):
-        return '%s %s' % (self.Athlete, str(self.AssessmentDate))
+        return '%s %s' % (self.Location, str(self.AssessmentDate))
+
+    
+
+class assessment(models.Model):
+    
+    HeightJump = models.FloatField(default = 0)
+    BroadJump = models.FloatField(default = 0)
+    GripStrength = models.FloatField(default = 0)
+    Sprint = models.FloatField(default = 0)
+    AgilityBox = models.FloatField(default = 0)
+    FiveFromFiveTime = models.FloatField(default = 0)
+    FiveFromFiveBalls = models.FloatField(default = 0)
+    HitSpeed = models.FloatField(default = 0)
+    PushSpeed = models.FloatField(default = 0)
+    IRYY1 = models.FloatField(default = 0)
+    IncludeInAverages = models.BooleanField(default = True)
+    Comments = models.TextField()
+    Athlete = models.ForeignKey(athlete, on_delete=models.CASCADE)
+    AssessmentEvent_FK = models.ForeignKey(AssessmentEvent, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return '%s %s' % (self.Athlete.AthleteName, str(self.AssessmentEvent_FK.AssessmentDate))
