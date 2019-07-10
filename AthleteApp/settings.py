@@ -25,7 +25,7 @@ SECRET_KEY = ')2+awrpzqkb49fmai)9jktx$#ykar0f-_o_0w$5^wu@86vhy-d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['AthleteSite-Test.eu-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['AthleteSite-Test.eu-west-2.elasticbeanstalk.com','127.0.0.1']
 
 
 # Application definition
